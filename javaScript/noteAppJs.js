@@ -1,3 +1,5 @@
+localStorage.setItem('theme', 'light')
+
 // ---------------- Variables ----------------
 let header = document.querySelector('.header')
 let searchInput = document.querySelector('.search-input')
