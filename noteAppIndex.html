@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Loader Page -->
+<section class="loader-section">
+    <div class="loader"></div>
+</section>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/noteAppCss.css">
+    <script src="./javaScript/noteAppJs.js" defer></script>
+    <script src="https://kit.fontawesome.com/555d6e3f3d.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+<!-- Header Section -->
+<section class="header">
+        <span class="search-svg-span">
+            <svg class="search-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                 stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/>
+          </svg>
+          </span>
+    <input class="search-input" type="text" placeholder="Search in titles">
+    <button class="add-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+             id="add-svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+        </svg>
+        <span>Add</span>
+    </button>
+    <div class="theme">
+        <button data-theme="light" title="Dark Theme" class="theme-btn">
+            <svg class="moon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd"
+                      d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z"
+                      clip-rule="evenodd"/>
+            </svg>
+            <svg class="sun-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z"/>
+            </svg>
+        </button>
+    </div>
+
+    <div class="add-note-div">
+        <div class="cancel-adding">X</div>
+        <input class="title" type="text" placeholder="Title" autocomplete="on" autofocus required>
+        <input class="details" type="text" placeholder="Details" autocomplete="off" autofocus required>
+        <span class="category-span">Category</span>
+        <select class="select-category">
+            <option selected value="Personal">PERSONAL</option>
+            <option value="Home">HOME</option>
+            <option value="Business">BUSINESS</option>
+        </select>
+        <button class="add-note-btn">Add</button>
+    </div>
+
+    <div class="delete-insurance" data-delete="none">
+        <span class="delete-insurance-span">U Sure?</span>
+        <i class="fa-solid fa-check" id="delete"></i>
+        <i class="fa-solid fa-xmark" id="no-delete"></i>
+    </div>
+
+    <div class="edit-note">
+        <div class="cancel-editing" title="Cancel Editing">X</div>
+
+        <input class="edit-title-input" type="text" placeholder="New Title">
+
+        <input class="edit-Detail-input" type="text" placeholder="New Details">
+
+        <select class="edit-select-category">
+            <option selected value="Personal">PERSONAL</option>
+            <option value="Home">HOME</option>
+            <option value="Business">BUSINESS</option>
+        </select>
+        <button class="edit-note-btn">Edit</button>
+    </div>
+
+</section>
+
+<!-- Body Section -->
+<section class="body-sec">
+
+    <div class="body-sec-top">
+        <span class="head-text">Your notes</span>
+        <div class="filters">
+            <div class="filter-left">
+                <div class="note-tag" id="filter-all">ALL</div>
+                <div class="note-tag" id="filter-personal">PERSONAL</div>
+                <div class="note-tag" id="filter-home">HOME</div>
+                <div class="note-tag" id="filter-business">BUSINESS</div>
+            </div>
+            <div class="filter-right">
+                <input type="checkbox" id="completed-notes" data-check="false">
+                <label class="completed-notes" for="completed-notes">Show only completed notes</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="body-sec-bottom">
+
+    </div>
+
+</section>
+
+</body>
+</html>

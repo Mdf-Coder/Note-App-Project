@@ -1,0 +1,749 @@
+@font-face {
+    font-family: "Roboto";
+    src: url(../font/RobotoCondensed-Regular.ttf);
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #F5F5F5;
+}
+
+
+/* --------------------------  Loader Style -------------------------*/
+
+.loader-section {
+    display: block;
+    position: absolute;
+    top: 50vh;
+    left: 50%;
+}
+
+.loader {
+    height: 30px;
+    aspect-ratio: 2.5;
+    --_g: no-repeat radial-gradient(farthest-side, #000 90%, #0000);
+    background: var(--_g), var(--_g), var(--_g), var(--_g);
+    background-size: 20% 50%;
+    animation: l44 1s infinite linear alternate;
+}
+
+@keyframes l44 {
+    0%,
+    5% {
+        background-position: calc(0 * 100% / 3) 50%, calc(1 * 100% / 3) 50%, calc(2 * 100% / 3) 50%, calc(3 * 100% / 3) 50%
+    }
+    12.5% {
+        background-position: calc(0 * 100% / 3) 0, calc(1 * 100% / 3) 50%, calc(2 * 100% / 3) 50%, calc(3 * 100% / 3) 50%
+    }
+    25% {
+        background-position: calc(0 * 100% / 3) 0, calc(1 * 100% / 3) 0, calc(2 * 100% / 3) 50%, calc(3 * 100% / 3) 50%
+    }
+    37.5% {
+        background-position: calc(0 * 100% / 3) 100%, calc(1 * 100% / 3) 0, calc(2 * 100% / 3) 0, calc(3 * 100% / 3) 50%
+    }
+    50% {
+        background-position: calc(0 * 100% / 3) 100%, calc(1 * 100% / 3) 100%, calc(2 * 100% / 3) 0, calc(3 * 100% / 3) 0
+    }
+    62.5% {
+        background-position: calc(0 * 100% / 3) 50%, calc(1 * 100% / 3) 100%, calc(2 * 100% / 3) 100%, calc(3 * 100% / 3) 0
+    }
+    75% {
+        background-position: calc(0 * 100% / 3) 50%, calc(1 * 100% / 3) 50%, calc(2 * 100% / 3) 100%, calc(3 * 100% / 3) 100%
+    }
+    87.5% {
+        background-position: calc(0 * 100% / 3) 50%, calc(1 * 100% / 3) 50%, calc(2 * 100% / 3) 50%, calc(3 * 100% / 3) 100%
+    }
+    95%,
+    100% {
+        background-position: calc(0 * 100% / 3) 50%, calc(1 * 100% / 3) 50%, calc(2 * 100% / 3) 50%, calc(3 * 100% / 3) 50%
+    }
+}
+
+
+/* -------------------------- Header Style -------------------------- */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    background-color: #fff;
+    box-shadow: 2px 4px 15px #BDBDBD;
+}
+
+.search-svg-span {
+    position: absolute;
+    left: 6.5%;
+}
+
+.search-svg {
+    width: 21px;
+    color: #757575;
+}
+
+.search-input {
+    width: 80%;
+    height: 40px;
+    padding: 0 60px;
+    border-radius: 10px;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid #EEEEEE;
+    background-color: #EEEEEE;
+    margin-right: 15px;
+    transition: all 50ms linear;
+}
+
+.search-input::placeholder {
+    color: #757575;
+    font-weight: bold;
+}
+
+.search-input:focus {
+    outline: none;
+    border: 2px solid #757575;
+}
+
+
+.header .search-input span svg {
+    width: 25px;
+}
+
+.add-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border-radius: 20px;
+    border: none;
+    width: 75px;
+    height: 40px;
+    padding: 5px;
+    color: white;
+    font-size: 16px;
+    background-color: #42A5F5;
+    cursor: pointer;
+    transition: all 100ms linear;
+}
+
+.add-btn:hover {
+    background-color: #1E88E5;
+}
+
+#add-svg {
+    width: 18px;
+}
+
+.theme {
+    width: 60px;
+    box-shadow: 1px 1px 2px rgba(128, 128, 128, 0.62);
+    border-radius: 20px;
+    padding: 5px;
+    margin-left: 15px;
+    line-height: 50%;
+    background-color: #757575;
+    cursor: pointer;
+}
+
+.theme-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    background-color: #212121;
+    transition: all 250ms 0ms linear;
+}
+
+.moon-svg {
+    display: block;
+    width: 25px;
+    margin: 0 auto;
+    color: #F9A825;
+}
+
+.sun-svg {
+    display: none;
+    width: 28px;
+    margin: 0 auto;
+    color: #F9A825;
+}
+
+@keyframes theme {
+    0% {
+
+    }
+    100% {
+        transform: translateX(25px);
+    }
+}
+
+/* Header - Add Note Form --- Edit Note Form*/
+.add-note-div {
+    display: none;
+    background-color: #fff;
+    box-shadow: 2px 2px 10px #90A4AE;
+    position: absolute;
+    top: 3vh;
+    left: 60vm;
+    padding: 10px;
+    border-radius: 10px;
+    width: 400px;
+    transition: all 120ms linear;
+
+    animation-name: dropDown;
+    animation-timing-function: ease-in;
+    animation-duration: 400ms;
+    animation-iteration-count: 1;
+}
+
+.cancel-adding {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cancel-adding:hover {
+    color: #1E88E5;
+}
+
+.vanish {
+    animation-name: vanish;
+    animation-timing-function: ease-in;
+    animation-duration: 400ms;
+    animation-iteration-count: 1;
+}
+
+.title {
+    display: block;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #90A4AE;
+    background-color: #EEEEEE;
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 15px;
+}
+
+.title:focus {
+    border: 1px solid #90A4AE;
+    outline: none;
+}
+
+.details {
+    display: block;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #90A4AE;
+    background-color: #EEEEEE;
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 15px;
+}
+
+.details:focus {
+    border: 1px solid #90A4AE;
+    outline: none;
+}
+
+.select-category {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #90A4AE;
+    background-color: #EEEEEE;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    width: 80%;
+    font-size: 15px;
+}
+
+.add-note-div span {
+    padding-left: 5px;
+    font-weight: bold;
+}
+
+.select-category:focus {
+    border: 1px solid #90A4AE;
+}
+
+.add-note-btn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    border: 1px solid #607D8B;
+    width: 30%;
+    height: 35px;
+    font-size: 17px;
+    border-radius: 10px;
+    transition: all 120ms linear;
+}
+
+.add-note-btn:hover {
+    background-color: #1E88E5;
+    color: #fff;
+}
+
+
+@keyframes dropDown {
+    0% {
+        transform: translateY(-80px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 100;
+    }
+}
+
+@keyframes vanish {
+    0% {
+        transform: translateY(0px);
+        opacity: 100;
+    }
+    100% {
+        transform: translateY(-80px);
+        opacity: 0;
+    }
+}
+
+/* ----------------------- delete insurance -----------------------*/
+
+.delete-insurance{
+    display: none;
+    position: absolute;
+    padding: 6px;
+    background-color: rgba(255, 255, 255, 0.85);
+    box-shadow: 2px 2px 10px rgba(128, 128, 128, 0.55);
+    border-radius: 5px;
+
+    animation: deletePopUp 250ms 1 linear;
+}
+.dark-delete-insurance{
+    background-color: rgba(54, 54, 54, 0.81);
+    color: white;
+    box-shadow: 2px 2px 10px #252525;
+}
+.delete-insurance-span{
+    display: inline-block;
+    margin-right: 8px;
+}
+#delete{
+    display: inline-block;
+    color: #1B5E20;
+    cursor: pointer;
+    padding: 5px;
+    margin-right: 3px;
+    border-radius: 5px;
+    transition: all 120ms 0ms linear;
+}
+#delete:hover{
+    background-color: #A5D6A7;
+}
+#no-delete{
+    width: 24px;
+    text-align: center;
+    display: inline-block;
+    color: #D50000;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    transition: all 120ms 0ms linear;
+}
+#no-delete:hover{
+    background-color: #EF9A9A;
+}
+
+@keyframes deletePopUp {
+    0%{
+        transform: translateX(-30px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 100%;
+    }
+}
+
+/* ----------------------- Edit Note --------------------------*/
+
+.edit-note{
+    display: none;
+    position: absolute;
+    top: 50%;
+    background-color: rgba(255, 255, 255, 0.85);
+    box-shadow: 2px 2px 10px rgba(128, 128, 128, 0.55);
+    padding: 10px;
+    border-radius: 10px;
+    width: 200px;
+    text-align: center;
+
+    animation: editPopUpOut 250ms 1 linear;
+}
+
+.cancel-editing{
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 120ms linear;
+}
+.cancel-editing:hover {
+    color: #1E88E5;
+}
+
+.edit-title-input{
+    display: inline-block;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.34);
+    background-color: #EEEEEE;
+    outline: none;
+    width: 85%;
+    height: 32px;
+    font-size: 15px;
+}
+.edit-Detail-input{
+    display: inline-block;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.34);
+    background-color: #EEEEEE;
+    outline: none;
+    width: 85%;
+    height: 32px;
+    font-size: 15px;
+}
+.edit-select-category{
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.34);
+    outline: none;
+    background-color: #EEEEEE;
+    margin-bottom: 5px;
+    font-size: 15px;
+    width: 85%;
+}
+.edit-note-btn{
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    border: 1px solid rgba(96, 125, 139, 0.78);
+    width: 85%;
+    height: 32px;
+    font-size: 17px;
+    border-radius: 10px;
+    transition: all 120ms linear;
+}
+
+.edit-note-btn:hover {
+    background-color: #1E88E5;
+    color: #fff;
+}
+
+@keyframes editPopUpOut {
+    0%{
+        transform: translateX(-30px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 100%;
+    }
+}
+
+/* -----------------------   Body Style -------------------------- */
+.body-sec {
+    margin-top: 40px;
+    padding: 0 155px;
+}
+
+
+/* Body Section Top */
+
+.body-sec-top {
+    margin-bottom: 60px;
+}
+
+.head-text {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.filters {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filter-left {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.note-tag {
+    display: block;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    color: #455A64;
+    padding-bottom: 10px;
+    transition: all 120ms linear;
+}
+
+.note-tag:hover {
+    color: #2196F3;
+}
+
+.note-tag-focus {
+    border-bottom: 2px solid #2196F3;
+    color: #2196F3!important;
+}
+
+.filter-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    color: #455A64;
+    font-size: 18px;
+}
+
+.filter-right input[type="checkbox" i] {
+    cursor: pointer;
+    display: block;
+    width: 22px;
+    height: 18px;
+}
+
+
+/* Body Section Bottom */
+.body-sec-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.note {
+    background: linear-gradient(135deg, #ffffff ,#DCC7AA);
+    width: 380px;
+    height: 250px;
+    box-shadow: 1px 1px 15px #CFD8DC;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.note-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.tag {
+    padding: 10px;
+    border-radius: 30px;
+    margin-bottom: 15px;
+}
+
+.note-control-btns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.note-control-btns .fa-pencil {
+    width: 20px;
+    cursor: pointer;
+    color: #FFC107;
+    transition: all 100ms ease-in;
+}
+.note-control-btns .fa-trash-can {
+    width: 20px;
+    cursor: pointer;
+    color: #F44336;
+    transition: all 100ms ease-in;
+}
+
+.note-control-btns input[type="checkbox" i] {
+    display: block;
+    width: 21px;
+    height: 17px;
+    cursor: pointer;
+}
+
+.note-body {
+    margin-bottom: 25px;
+}
+
+.note-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    height: 27px;
+    overflow: hidden;
+}
+
+.note-details {
+    font-size: 15px;
+    height: 65px;
+    overflow: hidden;
+}
+
+.note-footer {
+    text-align: end;
+}
+
+.date {
+    color: #90A4AE;
+}
+
+
+@keyframes noteCompleteAnimation {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.05);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+/* ----------------------  DARK THEME ----------------------- */
+
+.dark-header {
+    background-color: #292929;
+    box-shadow: 2px 4px 15px black;
+}
+
+.dark-search-input {
+    outline: none;
+    background-color: #B0BEC5;
+    border: 1px solid gray;
+}
+
+.dark-search-input:focus {
+    outline: none;
+    border: 1px solid gray;
+}
+
+.dark-add-note-div {
+    background-color: #28282B;
+    box-shadow: 2px 4px 15px black;
+}
+
+.dark-cancel-adding {
+    color: white;
+}
+
+.dark-title {
+    background-color: #455A64;
+    color: white;
+}
+
+.dark-title::placeholder, .dark-details::placeholder {
+    color: rgba(255, 255, 255, 0.699);
+}
+
+.dark-details {
+    background-color: #455A64;
+    color: white;
+}
+
+.dark-category-span {
+    color: rgba(255, 255, 255, 0.842);
+}
+
+.dark-select-category {
+    background-color: #455A64;
+    color: rgba(255, 255, 255, 0.699);
+}
+
+.dark-select-category:focus {
+    outline: none;
+}
+
+.dark-select-category option {
+    color: rgba(255, 255, 255, 0.699);
+}
+
+.dark-add-note-btn {
+    background-color: #28282B;
+    color: rgba(255, 255, 255, 0.842);
+}
+
+.dark-body {
+    background-color: #424242;
+}
+
+.dark-head-text {
+    color: white;
+}
+
+.dark-note-tag {
+    color: #BDBDBD;
+}
+.dark-note-tag:focus{
+    color: #2196F3;
+}
+
+.dark-completed-notes {
+    color: #BDBDBD;
+}
+
+.dark-note {
+    background: linear-gradient(135deg, #736b57, #373630);
+    box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.63);
+}
+
+.dark-note-title {
+    color: #EEEEEE;
+}
+
+.dark-note-details {
+    color: #E0E0E0;
+}
+
+.dark-date {
+    color: white;
+}
+
+.dark-edit-note{
+    background-color: rgba(54, 54, 54, 0.81);
+    color: white;
+    box-shadow: 2px 2px 10px #252525;
+}
+
+.dark-edit-title-input{
+    background-color: rgba(255, 255, 255, 0.53);
+    color: black;
+}
+.dark-edit-Detail-input{
+    background-color: rgba(255, 255, 255, 0.53);
+    color: black;
+}
+.dark-edit-select-category{
+    background-color: rgba(255, 255, 255, 0.53);
+    color: black;
+}
